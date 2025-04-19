@@ -116,6 +116,7 @@ main{
     width: 100%;
     display: block;
     transition: 0.4s;
+    padding-top: 15px;
 }
 
 #tasks .task .content .text:not(:read-only){
@@ -128,12 +129,14 @@ main{
 }
 
 .task .actions button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #8b5cf6;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
-    margin: 0 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.4s;
+    border-radius: 20px;
 }
 .task .actions button:hover{
     opacity: 0.8;
