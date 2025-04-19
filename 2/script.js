@@ -1,21 +1,37 @@
-let addToDoButton = document.getElementById('addToDo')
-let toDoContainer = document.getElementById('toDocontainer')
-let inputField = document.getElementById('inputField')
+// Let me add references to the 3 main elements
 
-addToDoButton.addEventListener('click', function(){
-    var paragraph = document.createElement('p')
-    paragraph.classList.add('paragraph-styling')
-    paragraph.innerText = inputField.value; 
-    toDoContainer.appendChild(paragraph)
+let addToDoButton = document.getElementById('addToDo'); // The "Add" button
+let toDoContainer = document.getElementById('toDocontainer'); // The container that will contain the tasks
+let inputField = document.getElementById('inputField'); // The input field for entering a task
+
+// For the Add button
+addToDoButton.addEventListener('click', function () {
+    // Create a new paragraph element to hold the task
+    var paragraph = document.createElement('p');
+
+    // Add a class for styling (assumes you have .paragraph-styling in your CSS)
+    paragraph.classList.add('paragraph-styling');
+
+    // Set the text of the paragraph to whatever the user typed
+    paragraph.innerText = inputField.value;
+
+    // Add the paragraph (task) to the to-do list container
+    toDoContainer.appendChild(paragraph);
+
+    // Clear the input field after adding the task
     inputField.value = "";
-    paragraph.addEventListener('click', function(){
+
+    // Add click event to toggle a line-through style (mark as completed)
+    paragraph.addEventListener('click', function () {
         if (paragraph.style.textDecoration === "line-through") {
-            paragraph.style.textDecoration = "none"
+            paragraph.style.textDecoration = "none";
         } else {
-            paragraph.style.textDecoration = "line-through"
+            paragraph.style.textDecoration = "line-through";
         }
-    })
-    paragraph.addEventListener('dblclick', function(){
-        toDoContainer.removeChild(paragraph)
-    })
-})
+    });
+
+    // Add double-click event to delete the task
+    paragraph.addEventListener('dblclick', function () {
+        toDoContainer.removeChild(paragraph);
+    });
+});
